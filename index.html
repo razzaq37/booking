@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Village Car Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        #result {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e8f5e9;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🚕 Boaganvilla Car Booking</h2>
+
+    <label>Pickup Location</label>
+    <input type="text" id="pickup" placeholder="Enter pickup location">
+
+    <label>Destination</label>
+    <input type="text" id="destination" placeholder="Enter destination">
+
+    <label>Vehicle Type</label>
+    <select id="vehicle">
+        <option>Car</option>
+        <option>Van</option>
+    </select>
+
+<label>Contach Number</label>
+    <input type="text" id="pickup" placeholder="Enter contach number">
+
+    <button onclick="bookRide()">Book Ride</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function bookRide() {
+    let pickup = document.getElementById("pickup").value;
+    let destination = document.getElementById("destination").value;
+    let vehicle = document.getElementById("vehicle").value;
+
+    if (pickup === "" || destination === "") {
+        alert("Please fill all fields");
+        return;
+    }
+
+    let bookingNo = Math.floor(Math.random() * 10000);
+
+    let result = document.getElementById("result");
+    result.style.display = "block";
+    result.innerHTML = `
+        <h3>Booking Confirmed</h3>
+        <p><strong>Booking No:</strong> ${bookingNo}</p>
+        <p><strong>Pickup:</strong> ${pickup}</p>
+        <p><strong>Destination:</strong> ${destination}</p>
+        <p><strong>Vehicle:</strong> ${vehicle}</p>
+        <p>Driver will contact you shortly.</p>
+    `;
+}
+</script>
+
+</body>
+</html>
